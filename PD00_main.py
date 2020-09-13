@@ -13,30 +13,30 @@ mtcarsDF = mtcars
 mtcarsDF
 
 #%%describing
-mtcarsDF.shape
-mtcarsDF.head(3)
-mtcarsDF.tail(4)
-mtcarsDF.describe
-mtcarsDF.columns
-mtcarsDF.dtypes
+mtcarsDF.shape #no. of rows and columns
+mtcarsDF.head(3) #number inside the head functions gives no. of rows fromt he start
+mtcarsDF.tail(4) #number inside the tail function gives no. or rows from the end
+mtcarsDF.describe() #basic stats about the data
+mtcarsDF.columns #column headers
+mtcarsDF.dtypes #data types withing the columns
 
 mtcarsDF.index  #here index by rownames
 type(mtcarsDF)
 
 mtcarsDF.select_dtypes(include=['int64'])
 mtcarsDF.select_dtypes(exclude=['int64'])
-mtcarsDF.isna()
-mtcarsDF.notna()
+mtcarsDF.isna() # has missing values
+mtcarsDF.notna() # does not have missing values
 id(mtcarsDF)
 mtcars.empty
 mtcars.size
-mtcars.ndim
-mtcars.axes
-mtcars.values
+mtcars.ndim #no. of dimensions
+mtcars.axes #rows and columns
+mtcars.values #only values within the data
 
 #%%% access DF
 mtcarsDF[0:5]
-mtcarsDF[0:5,0:3]
+mtcarsDF[0:5:1,0:3:1] #error
 
 #single value: at
 mtcarsDF.at['Mazda RX4', 'mpg']
@@ -45,11 +45,11 @@ mtcarsDF.at['Mazda RX4', 'mpg']
 #single values : iat : integer
 mtcarsDF.iat[0,0]
 mtcarsDF.iat[0,0:5]
-
+mtcarsDF.head()
 #set of values : loc : index values
 mtcarsDF.index
-mtcarsDF.loc[['Mazda 4X4']]
-mtcarsDF.loc['Mazda 4X4', ['mpg']]
+mtcarsDF.loc[['Mazda RX4']]
+mtcarsDF.loc['Mazda RX4', ['mpg']]
 mtcarsDF.loc[7:9]
 
 #iloc
@@ -65,6 +65,7 @@ mtcarsDF.loc['Mazda RX4':'Datsun 710']  #difficult to implement
 mtcarsDF.iloc[1:10, 1:5]
 mtcarsDF.iloc[1:10:2, 1:5:2]
 mtcarsDF.iloc[1::2, 1::2]
+mtcarsDF.iloc[5:10,6:8]
 mtcarsDF.iloc[0]
 mtcarsDF.iloc[1:5]
 mtcarsDF.iloc[1,5] #2nd row, 6th column
@@ -81,8 +82,8 @@ mtcarsDF.iloc[0:3]
 #filter
 mtcarsDF.filter(['gear', 'am'])
 mtcarsDF.filter(regex = '[gGa]')  #small or big G or a in the column name
-
 mtcarsDF.filter(items=['gear','am'])
+mtcarsDF.filter(items=['Mazda'],axis=1)
 mtcarsDF.filter(regex='Toyota', axis=0)  #rownames axis=0
 mtcarsDF.filter(regex='am', axis=1)  #colnames axis=1
 
