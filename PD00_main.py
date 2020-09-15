@@ -109,7 +109,7 @@ mtcars[mtcarsDF['gear'] != 3, ['gear','am']]
 #another way
 mtcarsDF[mtcarsDF.gear.eq(3)]  #chaining method
 
-mtcarsDF[mtcarsDF['gear'] == 3 & mtcarsDF['am']== 0]
+mtcarsDF[mtcarsDF['gear'] == 3 & mtcarsDF['am'] == 0] #error
 
 mtcarsDF.gear.unique()
 mtcarsDF.carb.unique()
@@ -161,6 +161,7 @@ mtcarsDF.sort_values(by=['gear', 'mpg'])
 
 #%%% groupby
 mtcarsDF.describe()
+mtcarsDF['carnames'] = mtcarsDF.index
 mtcarsDF.groupby('gear')
 mtcarsDF.groupby(['gear'])
 mtcarsDF.groupby(['gear']).groups.keys()
@@ -186,7 +187,7 @@ mtcarsDF.groupby('gear')['mpg','wt'].agg('mean')
 mtcarsDF.groupby('gear')['mpg','wt'].agg(['mean','max'])
 mtcarsDF.groupby('gear').agg([np.mean, np.sum])  #all columns, np is faster, numeric values
 mtcarsDF.groupby('gear')['mpg','wt'].agg([np.mean, np.sum, 'count'])
-mtcarsDF.groupby('gear')['mpg'].agg([np.mean, np.sum, 'count']).rename(columns={'meanMPG')
+mtcarsDF.groupby('gear')['mpg'].agg([np.mean, np.sum, 'count']).rename(columns=('meanMPG')
 
 
 

@@ -154,12 +154,14 @@ numpy.array([list1])
 import numpy as np #np is alias
 np1 = np.arange(1,10)
 np1
-
+np2 = np.arange(50,101)
+np2
 x=np.arange(start=1,stop=1000000,step=2)
+x
 len(x)
 x[1:100]
 x[1:50:10]
-np
+np.mean(x[0:100])
 np.mean(np.arange(1,10000000))
 np1
 type(np1)
@@ -170,7 +172,8 @@ np.mean?  # help on mean function of numpy
 
 np2 = np.array([ 90, 50, 60, 70 ])
 np2
-np.sort(np2)
+np.sort?
+-np.sort(-np2)
 dir(np)
 
 np3 = np.array([[1,4],[3,1],[5,6],[10,50]])
@@ -178,7 +181,8 @@ np3
 np3.shape
 
 np3.reshape((-1,1))  #1 column from 2 column
-
+np4 = np.array([['a','b'],['c','d'],['e','f'],['g','h']], dtype = 'str')
+np4
 #http://cs231n.github.io/python-numpy-tutorial/
 #%% #pandas - dataframe, excel like
 #https://mode.com/python-tutorial/pandas-dataframe/
@@ -207,7 +211,6 @@ df1.groupby('gender').aggregate({'marks': [np.mean, 'max','min','std','count']})
 import matplotlib.pyplot as plt
 df1.groupby('gender').size()
 df1.groupby('gender').size().plot(kind='bar')
-
 plt.hist(df1['marks'])
 
 #https://seaborn.pydata.org/index.html
@@ -233,7 +236,6 @@ import statsmodels.api as sm
 mtcars = sm.datasets.get_rdataset(dataname='mtcars', package= 'datasets')
 mtcars.data.head()
 
-
 #%%
 #Load from Excel/ CSV and export to
 data = mtcars.data
@@ -257,12 +259,11 @@ data2a
 data2a = pd.read_csv('mtcars.csv') #when csv is in project folder
 data2a
 data2b
-data2b = pd.read_csv('E:/analytics/projects/pyanalytics/mtcars.csv')
+data2b = pd.read_csv('D:/analytics/projects/pyanalytics/mtcars.csv')
 data2b
 #csv in any other location - full path
 data2b
 data2a.head()
-
 data2c = pd.read_excel('mtcarsExcel.xlsx',header=0)
 #header=None
 data2c.head()
